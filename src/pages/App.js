@@ -14,8 +14,9 @@ function App() {
   const handleSearchRepo = async () => {
     
     const {data} = await api.get(`repos/${currentRepo}`)
+    
     if(data.id){
-      const isExists = respos.find(repo => repo.id === data.id)
+      const isExists = respos.filter(repo => repo.id === data.id)
       if(isExists){
         setRepos(prev => [...prev, data]);
       setCurrentRepo('')
@@ -38,8 +39,8 @@ function App() {
       <Input value={currentRepo} onChange={(e) => setCurrentRepo(e.target.value)} />
       
       <Button onClick={handleSearchRepo} />
-      
       {respos.map(repo => <ItemRepo handleRemoveRepo={handleRemoveRepo} repo={repo}/>)}
+      
     </Container>
   );
 }
