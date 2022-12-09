@@ -1,7 +1,7 @@
 import React from 'react'
 import { ItemContainer } from './styles'
 
-export function ItemRepo({repo handleRemoveRepo}) {
+export function ItemRepo({repo, handleRemoveRepo}) {
   
   const handleRemove = () => {
     handleRemoveRepo(repo.id)
